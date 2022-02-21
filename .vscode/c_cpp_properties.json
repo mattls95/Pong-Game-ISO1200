@@ -1,10 +1,10 @@
 {
     "configurations": [
-
         {
             "name": "WIN32",
             "includePath": [
-                "C:\\mysys\\opt\\mcb32tools\\include\\"
+                "C:\\mysys\\opt\\mcb32tools\\include\\",
+                "${workspaceFolder}"
             ],
             "defines": [
                 "_DEBUG",
