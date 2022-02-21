@@ -1,0 +1,2 @@
+enable_interupt.S.o: enable_interupt.S
+enable_interupt.S :

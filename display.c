@@ -1,6 +1,6 @@
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <pic32mx.h>  /* Declarations of system-specific addresses etc */
-#include <images.h>
+#include "images.h"
 
 #define DISPLAY_CHANGE_TO_COMMAND_MODE (PORTFCLR = 0x10)
 #define DISPLAY_CHANGE_TO_DATA_MODE (PORTFSET = 0x10)
@@ -16,6 +16,15 @@
 
 char textbuffer[4][16];
 
+/* quicksleep:
+   A simple function to create a small delay.
+   Very inefficient use of computing resources,
+   but very handy in some special cases. */
+void quicksleep(int cyc) {
+	int i;
+	for(i = cyc; i > 0; i--);
+}
+
 uint8_t spi_send_recv(uint8_t data) {
 	while(!(SPI2STAT & 0x08));
 	SPI2BUF = data;
@@ -24,7 +33,7 @@ uint8_t spi_send_recv(uint8_t data) {
 }
 
 void display_init(void) {
-  DISPLAY_CHANGE_TO_COMMAND_MODE;
+    DISPLAY_CHANGE_TO_COMMAND_MODE;
 	quicksleep(10);
 	DISPLAY_ACTIVATE_VDD;
 	quicksleep(1000000);
