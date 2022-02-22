@@ -14,3 +14,9 @@ int getbtns(void){
     btns_status &= 0x0007;
     return btns_status;
 }
+
+int getbtn4(){
+    int btns = getbtns();
+    int button4 = btns & 0x4;
+    return button4;
+}

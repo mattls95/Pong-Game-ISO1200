@@ -44,5 +44,7 @@ int main() {
 	SPI2CONSET = 0x8000;
 
 	display_menu();
+	int a = 10;
+	int b = 11;
 	return 0;
 }
