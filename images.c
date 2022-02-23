@@ -1,3 +1,12 @@
+/*
+********************************************************************************
+* name    :  images.c
+* authors :  Mattias Lindgren, 2022-02-xx
+*            Original code by Fredrik Lundeval and Axel Isaksson, 2015
+* brief   :  Contains the font used by the menu class and images used
+********************************************************************************
+*/
+
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <pic32mx.h>  /* Declarations of system-specific addresses etc */
 

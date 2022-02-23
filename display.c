@@ -1,3 +1,13 @@
+/*
+********************************************************************************
+* name    :  display.c
+* authors :  Mattias Lindgren, 2022-02-xx
+*            Original code by Fredrik Lundeval and Axel Isaksson, 2015
+* brief   :  Contains driver for interfacing with and initialize the chipkit
+*            uno32 basic i/o shield oled display. Used for displaying the menus.
+********************************************************************************
+*/
+
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <pic32mx.h>  /* Declarations of system-specific addresses etc */
 #include "images.h"
@@ -61,7 +71,9 @@ void display_init(void) {
 	
 	spi_send_recv(0xAF);
 }
-
+/*
+* Clears display by setting every element in textbuffer to 0
+*/
 void clear_display(void){
   int i, j;
   for(i = 0; i < 4; i++){
@@ -100,8 +112,8 @@ void display_image(int x, const uint8_t *data) {
 		
 		DISPLAY_CHANGE_TO_DATA_MODE;
 		
-		for(j = 0; j < 32; j++)
-			spi_send_recv(~data[i*32 + j]);
+		for(j = 0; j < 128; j++)
+			spi_send_recv(~data[i*128 + j]);
 	}
 }
 

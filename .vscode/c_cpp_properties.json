@@ -3,7 +3,7 @@
         {
             "name": "WIN32",
             "includePath": [
-                "C:\\mysys64\\opt\\mcb32tools\\include\\", 
+                "C:\\mysys\\opt\\mcb32tools\\include\\", 
                 //C:\msys64\opt\mcb32tools\include
                 "${workspaceFolder}"
             ],

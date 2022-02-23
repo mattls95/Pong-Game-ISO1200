@@ -1,4 +1,15 @@
+/*
+********************************************************************************
+* name    :  main.c
+* authors :  Mattias Lindgren, 2022-02-xx
+*            Original code by Fredrik Lundeval and Axel Isaksson, 2015
+* brief   :  Contains driver for interfacing with and initialize the chipkit
+*            uno32 basic i/o shield oled display.
+********************************************************************************
+*/
+
 #include <pic32mx.h>
+#include "images.h"
 
 int main() {
 	/*
@@ -28,8 +39,8 @@ int main() {
 	TRISGCLR = 0x200;
 	
 	/* Set up input pins */
-	TRISDSET = (1 << 8);
-	TRISFSET = (1 << 1);
+	//TRISDSET = (1 << 8);
+	//TRISFSET = (1 << 1);
 	
 	/* Set up SPI as master */
 	SPI2CON = 0;
@@ -43,8 +54,10 @@ int main() {
 	/* SPI2CON bit ON = 1; */
 	SPI2CONSET = 0x8000;
 
-	display_menu();
-	int a = 4;
-	int b = 3;
+    display_init();
+	display_string(0, "     PONG!    ");
+    display_update();
+	quicksleep(10000000);
+	display_main_menu();
 	return 0;
 }
