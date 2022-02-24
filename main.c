@@ -55,9 +55,13 @@ int main() {
 	SPI2CONSET = 0x8000;
 
     display_init();
-	display_string(0, "     PONG!    ");
-    display_update();
-	quicksleep(10000000);
-	display_main_menu();
+	uint8_t x = 150;
+	uint8_t y = 50;
+
+	light_up_pixel(x,y);
+	//display_string(0, "     PONG!    ");
+    //display_update();
+	//quicksleep(10000000);
+	//display_main_menu();
 	return 0;
 }
