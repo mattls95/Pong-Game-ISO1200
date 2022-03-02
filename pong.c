@@ -43,11 +43,9 @@ void OledUpdate();
 char Spi2PutByte(char bVal);
 
 void light_up_pixel(uint8_t x, uint8_t y){
-    //Spi2PutByte(x);
-    //Spi2PutByte(y);
     spi_send_recv(x);
     spi_send_recv(y);
-    OledUpdate();
+    display_update();
     return;
 }
 
